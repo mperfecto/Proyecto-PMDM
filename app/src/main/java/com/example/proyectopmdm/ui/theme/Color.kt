@@ -2,7 +2,7 @@ package com.example.proyectopmdm.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val CreamBackground = Color(0x0FFF8F4E3)
+val CreamBackground = Color(0xFFFAF3E0)
 val SoftGreen = Color(0xFF91A99C)
 val DeepGreen = Color(0xFF2D4B40)
 val AccentGreen = Color(0xFF648767)

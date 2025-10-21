@@ -1,4 +1,4 @@
-package com.example.proyectopmdm
+package com.example.proyectopmdm.pages
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
