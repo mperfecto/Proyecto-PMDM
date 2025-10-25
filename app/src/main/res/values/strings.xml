@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProyectoPMDM</string>
-    <string name="bienvenida">Bienvenidx %1$s</string>
+    <string name="app_name">Proyecto PMDM</string>
+    <string name="bienvenida">Bienvenidx %1$s!</string>
     <string name="hasleido">Has leído hoy?</string>
 </resources>

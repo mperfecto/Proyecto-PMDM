@@ -29,7 +29,7 @@ private val LightColorScheme = lightColorScheme(
     background = CreamBackground,
     surface = CreamBackground,
     onPrimary = TextLight,
-    onBackground = TextDark,
+    onBackground = DeepGreen,
     onSurface = TextDark,
     outline = CardBorder
 )
@@ -38,7 +38,7 @@ private val LightColorScheme = lightColorScheme(
 fun ProyectoPMDMTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {

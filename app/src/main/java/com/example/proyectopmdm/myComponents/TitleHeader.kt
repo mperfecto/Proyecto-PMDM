@@ -10,31 +10,38 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.proyectopmdm.ui.theme.CreamBackground
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 
 @Composable
-fun TitleHeader(text: String) {
+fun TitleHeader(text: String, modifier: Modifier = Modifier) {
 
+    val screenWidth = LocalConfiguration.current.screenWidthDp.dp
 
-
-    Text(
-        text = text,
-        color = MaterialTheme.typography.bodyLarge.color,
-        style = MaterialTheme.typography.bodyLarge,
-        overflow = TextOverflow.Ellipsis,
-        modifier = Modifier.widthIn(LocalConfiguration.current.screenWidthDp.dp * 0.75f)
-    )
+    Box(
+        modifier = modifier
+            .background(MaterialTheme.colorScheme.background)
+            .fillMaxWidth()
+    ) {
+        Text(
+            text = text,
+            color = MaterialTheme.colorScheme.onBackground,
+            style = MaterialTheme.typography.bodyLarge,
+            overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.widthIn(max = screenWidth * 0.75f),
+            softWrap = true
+        )
+    }
 
 }
 
 @Preview
 @Composable
 fun TitleHeaderPreview() {
-    TitleHeader(text = "Bienvenidx Marcos")
+    ProyectoPMDMTheme {
+        TitleHeader(text = "Bienvenidx Marcos")
+    }
 }

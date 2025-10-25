@@ -1,42 +1,55 @@
 package com.example.proyectopmdm.myComponents
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 import com.example.proyectopmdm.R
-import com.example.proyectopmdm.ui.theme.CreamBackground
+import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 
 
 @Composable
 fun PageHeader(titleHeader: String, subtitleText: String, modifier: Modifier = Modifier) {
 
-    Column(modifier = modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
-        TitleHeader(text = titleHeader)
-        SubtitleText(text = subtitleText)
+    Box(
+        modifier = Modifier
+            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .background(MaterialTheme.colorScheme.background)
+    )
+    {
+        Column(
+            modifier = Modifier,
+            verticalArrangement = Arrangement.spacedBy(7.dp)
+        ) {
+            TitleHeader(text = titleHeader)
+            SubtitleText(text = subtitleText)
+        }
     }
-
 }
 
 @Preview
 @Composable
 fun PageHeaderPreview() {
-    ProyectoPMDMTheme {
-        Box(modifier = Modifier.background(CreamBackground).fillMaxSize())
-        val username = "Marcos"
-        val title = stringResource(id = R.string.bienvenida, username)
-        val subtitle = stringResource(id = R.string.hasleido)
 
-        PageHeader(
-            titleHeader = title,
-            subtitleText = subtitle
-        )
+    ProyectoPMDMTheme {
+
+        Box() {
+            val username = "Marcos"
+            val title = stringResource(id = R.string.bienvenida, username)
+            val subtitle = stringResource(id = R.string.hasleido)
+
+            PageHeader(
+                titleHeader = title,
+                subtitleText = subtitle
+            )
+        }
     }
 }
