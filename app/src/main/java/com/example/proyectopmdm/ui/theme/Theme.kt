@@ -1,8 +1,6 @@
 package com.example.proyectopmdm.ui.theme
 
-import android.app.Activity
 import android.os.Build
-import android.os.Parcelable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -11,27 +9,87 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 
 private val DarkColorScheme = darkColorScheme(
-    primary = SoftGreen,
-    secondary = DeepGreen,
-    background = DarkBackground,
-    onPrimary = TextLight,
-    onBackground = TextLight,
-    onSurface = TextLight
+    primary = DarkWarmPeach,
+    onPrimary = DarkRichMahogany,
+    primaryContainer = DarkRustContainer,
+    onPrimaryContainer = DarkPaleCoral,
+
+    secondary = DarkSoftRose,
+    onSecondary = DarkDeepCocoa,
+    secondaryContainer = DarkWalnutContainer,
+    onSecondaryContainer = DarkPaleClay,
+
+    tertiary = DarkMutedGold,
+    onTertiary = DarkOliveBrown,
+    tertiaryContainer = DarkEarthContainer,
+    onTertiaryContainer = DarkGoldenSand,
+
+    surfaceDim = DarkMochaDim,
+    surface = DarkMochaSurface,
+    surfaceBright = DarkMochaBright,
+    surfaceContainerLowest = DarkCoffeeLowest,
+    surfaceContainerLow = DarkCoffeeLow,
+    surfaceContainer = DarkCoffee,
+    surfaceContainerHigh = DarkCoffeeHigh,
+    surfaceContainerHighest = DarkCoffeeHighest,
+
+    onSurface = DarkIvoryText,
+    onSurfaceVariant = DarkRoseBeigeText,
+    outline = DarkAshOutline,
+    outlineVariant = DarkClayOutline,
+
+    inverseSurface = DarkIvoryInverseSurface,
+    inverseOnSurface = DarkEspressoInverseText,
+    inversePrimary = DarkBrickAccent,
+
+    error = DarkSoftRedError,
+    onError = DarkWineRedErrorText,
+    errorContainer = DarkDeepCrimsonErrorContainer,
+    onErrorContainer = DarkPaleRoseErrorText,
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = DeepGreen,
-    secondary = AccentGreen,
-    tertiary = SoftGreen,
-    background = CreamBackground,
-    surface = LightSurface,
-    onPrimary = TextLight,
-    onBackground = DeepGreen,
-    onSurface = TextDark,
-    outline = CardBorder
+    primary = WarmGold,
+    onPrimary = PureWhite,
+    primaryContainer = LightGold,
+    onPrimaryContainer = DarkGold,
+
+    secondary = SoftBrown,
+    onSecondary = PureWhite,
+    secondaryContainer = LightBrown,
+    onSecondaryContainer = DarkBrown,
+
+    tertiary = OliveGreen,
+    onTertiary = PureWhite,
+    tertiaryContainer = LightOlive,
+    onTertiaryContainer = DarkOlive,
+
+    background = CreamSurface,
+    surface = CreamSurface,
+    surfaceDim = BeigeSurfaceDim,
+    surfaceBright = CreamSurfaceBright,
+    surfaceContainerLowest = LightBeigeLow,
+    surfaceContainerLow = LightBeigeLow,
+    surfaceContainer = LightBeige,
+    surfaceContainerHigh = MediumBeige,
+    surfaceContainerHighest = DarkBeige,
+
+    onSurface = DeepBrownText,
+    onSurfaceVariant = TaupeTextVariant,
+
+    outline = TaupeOutline,
+    outlineVariant = LightTaupeOutline,
+
+    inverseSurface = DarkSurface,
+    inverseOnSurface = LightOnDarkText,
+    inversePrimary = PaleGold,
+
+    error = BrightCrimsonError,
+    onError = PureWhiteOnError,
+    errorContainer = SoftRoseErrorContainer,
+    onErrorContainer = DeepCrimsonOnErrorContainer
 )
 
 @Composable

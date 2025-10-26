@@ -6,9 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
@@ -37,7 +35,8 @@ fun MyBottomBar(
     onSearchClick: () -> Unit
 ) {
     BottomAppBar(
-        containerColor = MaterialTheme.colorScheme.primary
+        containerColor = MaterialTheme.colorScheme.surface,
+        contentColor = MaterialTheme.colorScheme.onSurface
     ) {
 
         val iconSize = 32.dp
@@ -51,35 +50,35 @@ fun MyBottomBar(
         ) {
             IconButton(onClick = {}) {
                 Icon(
-                    Icons.Default.Settings,
+                    painterResource(R.drawable.ic_settings),
                     contentDescription = "Settings",
                     modifier = Modifier.size(iconSize)
                 )
             }
             IconButton(onClick = onFavoriteClick) {
                 Icon(
-                    painterResource(R.drawable.library),
+                    painterResource(R.drawable.ic_library),
                     contentDescription = "Favorite",
                     modifier = Modifier.size(iconSize)
                 )
             }
             IconButton(onClick = onHomeClick) {
                 Icon(
-                    Icons.Default.Home,
+                    painterResource(R.drawable.ic_home),
                     contentDescription = "Home",
                     modifier = Modifier.size(iconSize)
                 )
             }
             IconButton(onClick = onSearchClick) {
                 Icon(
-                    Icons.Default.Search,
+                    painterResource(R.drawable.ic_search),
                     contentDescription = "Search",
                     modifier = Modifier.size(iconSize)
                 )
             }
             IconButton(onClick = onProfileClick) {
                 Icon(
-                    Icons.Default.Person,
+                    painterResource(R.drawable.ic_account),
                     contentDescription = "Profile",
                     modifier = Modifier.size(iconSize)
                 )

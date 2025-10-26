@@ -21,19 +21,18 @@ fun TitleHeader(text: String, modifier: Modifier = Modifier) {
 
     Box(
         modifier = modifier
-            .background(MaterialTheme.colorScheme.background)
+            .background(MaterialTheme.colorScheme.surfaceContainer)
             .fillMaxWidth()
     ) {
         Text(
             text = text,
-            color = MaterialTheme.colorScheme.onBackground,
-            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onPrimaryContainer,
+            style = MaterialTheme.typography.displaySmall,
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier.widthIn(max = screenWidth * 0.75f),
             softWrap = true
         )
     }
-
 }
 
 @Preview
