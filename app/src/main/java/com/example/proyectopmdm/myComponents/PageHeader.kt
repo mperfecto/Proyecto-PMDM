@@ -44,7 +44,7 @@ fun PageHeaderPreview() {
         Box() {
             val username = "Marcos"
             val title = stringResource(id = R.string.bienvenida, username)
-            val subtitle = stringResource(id = R.string.hasleido)
+            val subtitle = stringResource(id = R.string.has_leido)
 
             PageHeader(
                 titleHeader = title,

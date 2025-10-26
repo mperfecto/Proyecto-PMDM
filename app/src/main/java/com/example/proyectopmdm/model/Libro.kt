@@ -9,7 +9,7 @@ data class Libro(
     val autor: String,
     val portada: Int = R.drawable.book,
     val sinopsis: String,
-    val paginasTotales: Int? = null,
+    val paginasTotales: Int,
     val paginasLeidas: Int? = null,
     val ultimaLectura: LocalDate? = null
 )

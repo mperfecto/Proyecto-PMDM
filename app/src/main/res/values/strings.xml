@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Proyecto PMDM</string>
     <string name="bienvenida">Bienvenidx %1$s!</string>
-    <string name="hasleido">¿Has leído hoy?</string>
+    <string name="has_leido">¿Has leído hoy?</string>
+    <string name="paginas_de">Pág %1$d de %2$d</string>
+    <string name="ultima_lectura">Última lectura: %1$s</string>
 </resources>
