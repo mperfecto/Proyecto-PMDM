@@ -1,7 +1,7 @@
 package com.example.spotifyhome.model
 
 import com.example.proyectopmdm.R
-import java.time.LocalDate
+import java.util.Date
 
 data class Libro(
     val id: Int,
@@ -11,5 +11,5 @@ data class Libro(
     val sinopsis: String,
     val paginasTotales: Int,
     val paginasLeidas: Int? = null,
-    val ultimaLectura: LocalDate? = null
+    val ultimaLectura: Date? = null
 )

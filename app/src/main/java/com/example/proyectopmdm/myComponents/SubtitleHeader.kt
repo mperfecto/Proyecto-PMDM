@@ -13,13 +13,13 @@ import androidx.compose.ui.text.style.TextOverflow
 fun SubtitleText(text: String, modifier: Modifier = Modifier) {
 
     Box(modifier = modifier
-        .background(MaterialTheme.colorScheme.surfaceContainer)
+        .background(MaterialTheme.colorScheme.surface)
         .fillMaxWidth()) {
 
         Text(
             text = text,
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.onPrimaryContainer,
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.onSurface,
             overflow = TextOverflow.Ellipsis,
             modifier = modifier
         )

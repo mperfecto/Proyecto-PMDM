@@ -67,7 +67,7 @@ private val LightColorScheme = lightColorScheme(
     onTertiaryContainer = DarkOlive,
 
     background = CreamSurface,
-    surface = CreamSurface,
+    surface = DarkBeige, // CreamSurface
     surfaceDim = BeigeSurfaceDim,
     surfaceBright = CreamSurfaceBright,
     surfaceContainerLowest = LightBeigeLow,

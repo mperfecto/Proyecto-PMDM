@@ -5,11 +5,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -27,7 +22,7 @@ import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyBottomBar(
+fun BottomAppBar(
     onSettingsClick: () -> Unit,
     onHomeClick: () -> Unit,
     onFavoriteClick: () -> Unit,
@@ -36,7 +31,7 @@ fun MyBottomBar(
 ) {
     BottomAppBar(
         containerColor = MaterialTheme.colorScheme.surface,
-        contentColor = MaterialTheme.colorScheme.onSurface
+        contentColor = MaterialTheme.colorScheme.onSecondaryContainer
     ) {
 
         val iconSize = 32.dp
@@ -48,7 +43,7 @@ fun MyBottomBar(
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            IconButton(onClick = {}) {
+            IconButton(onClick = onSettingsClick) {
                 Icon(
                     painterResource(R.drawable.ic_settings),
                     contentDescription = "Settings",
@@ -92,7 +87,7 @@ fun MyBottomBar(
 @Composable
 fun MyBottomBarPreview() {
     ProyectoPMDMTheme {
-        MyBottomBar(
+        BottomAppBar(
             onSettingsClick = {},
             onHomeClick = {},
             onFavoriteClick = {},

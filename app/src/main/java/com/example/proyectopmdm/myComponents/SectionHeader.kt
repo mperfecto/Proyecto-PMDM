@@ -3,6 +3,7 @@ package com.example.proyectopmdm.myComponents
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -15,19 +16,22 @@ import androidx.compose.ui.unit.dp
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 
 @Composable
-fun TitleHeader(text: String, modifier: Modifier = Modifier) {
-
+fun SectionHeader(
+    text: String,
+    modifier: Modifier = Modifier
+) {
     val screenWidth = LocalConfiguration.current.screenWidthDp.dp
 
     Box(
         modifier = modifier
             .background(MaterialTheme.colorScheme.surface)
+            .padding(start = 16.dp, end = 16.dp, top = 8.dp)
             .fillMaxWidth()
     ) {
         Text(
             text = text,
             color = MaterialTheme.colorScheme.onSecondaryContainer,
-            style = MaterialTheme.typography.displaySmall,
+            style = MaterialTheme.typography.headlineSmall,
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier.widthIn(max = screenWidth * 0.75f),
             softWrap = true
@@ -37,8 +41,8 @@ fun TitleHeader(text: String, modifier: Modifier = Modifier) {
 
 @Preview
 @Composable
-fun TitleHeaderPreview() {
+fun SectionHeaderPreview() {
     ProyectoPMDMTheme {
-        TitleHeader(text = "Bienvenidx Marcos")
+        TitleHeader(text = "Estás leyendo...")
     }
 }

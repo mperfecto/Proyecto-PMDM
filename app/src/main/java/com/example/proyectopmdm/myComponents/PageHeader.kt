@@ -20,13 +20,13 @@ fun PageHeader(titleHeader: String, subtitleText: String, modifier: Modifier = M
 
     Box(
         modifier = Modifier
-            .padding(horizontal = 16.dp, vertical = 8.dp)
-            .background(MaterialTheme.colorScheme.surfaceContainer)
+            .padding(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 8.dp)
+            .background(MaterialTheme.colorScheme.surface)
     )
     {
         Column(
             modifier = Modifier,
-            verticalArrangement = Arrangement.spacedBy(7.dp)
+            verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             TitleHeader(text = titleHeader)
             SubtitleText(text = subtitleText)

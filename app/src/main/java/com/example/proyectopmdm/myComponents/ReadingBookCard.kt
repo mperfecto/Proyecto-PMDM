@@ -1,13 +1,11 @@
 package com.example.proyectopmdm.myComponents
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -26,9 +24,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.proyectopmdm.R
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
+import com.example.proyectopmdm.ui.theme.bodyMediumSemiBold
 import com.example.spotifyhome.model.Libro
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
-@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun ReadingBookCard(
     libro: Libro,
@@ -37,44 +38,48 @@ fun ReadingBookCard(
 ) {
 
     Card(
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        border = CardDefaults.outlinedCardBorder(),
+        shape = RoundedCornerShape(10.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
         modifier = modifier
             .fillMaxWidth()
-            .padding(8.dp)
+            .padding(horizontal = 16.dp, vertical = 4.dp)
             .clickable { onClick() }
     ) {
 
         Row(
             modifier = Modifier
-                .padding(start = 8.dp, end = 8.dp)
-                .fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
+                .fillMaxWidth()
+                .padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
                 painter = painterResource(id = libro.portada ?: R.drawable.book),
                 contentDescription = libro.titulo,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .size(width = 80.dp, height = 100.dp)
-                    .clip(RoundedCornerShape(8.dp))
+                    .size(width = 100.dp, height = 120.dp)
+                    .clip(RoundedCornerShape(10.dp)),
             )
 
             Column(
-                modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.Center
+                modifier = Modifier
+                    .weight(1f)
+                    .height(110.dp)
+                    .padding(start = 25.dp, end = 12.dp)
             ) {
                 Text(
                     text = libro.titulo,
-                    style = MaterialTheme.typography.headlineSmall,
-                    color = MaterialTheme.colorScheme.onSurface
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier
+                        .padding(bottom = 4.dp)
                 )
                 Text(
                     text = libro.autor,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurface
+                    style = bodyMediumSemiBold,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier
+                        .padding(bottom = 15.dp)
                 )
                 Text(
                     text = stringResource(
@@ -83,32 +88,34 @@ fun ReadingBookCard(
                         libro.paginasTotales
                     ),
                     color = MaterialTheme.colorScheme.onSurface,
-                    style = MaterialTheme.typography.bodySmall
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier
+                        .padding(bottom = 10.dp)
                 )
                 Text(
                     text = stringResource(
                         R.string.ultima_lectura,
-                        libro.ultimaLectura?.format(
-                            java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy")
-                        ) ?: "--/--/----"
+                        libro.ultimaLectura?.let {
+                            val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                            formatter.format(it)
+                        } ?: "--/--/----"
                     ),
                     color = MaterialTheme.colorScheme.onSurface,
                     style = MaterialTheme.typography.bodySmall
-
                 )
 
             }
 
+
         }
     }
-
 }
 
-@RequiresApi(Build.VERSION_CODES.O)
 @Preview(showBackground = true)
 @Composable
 fun ReadingBookCardPreview() {
     ProyectoPMDMTheme {
+
         val libroEjemplo = Libro(
             id = 1,
             titulo = "El Principito",
@@ -116,7 +123,7 @@ fun ReadingBookCardPreview() {
             sinopsis = "Una historia sobre la infancia, la amistad y la esencia de la vida.",
             paginasTotales = 100,
             paginasLeidas = 50,
-            ultimaLectura = java.time.LocalDate.of(2025, 10, 24),
+            ultimaLectura = Date(2025 - 1900, 9, 24),
             portada = R.drawable.book
         )
         ReadingBookCard(libro = libroEjemplo)

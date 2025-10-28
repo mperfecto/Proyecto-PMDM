@@ -19,7 +19,14 @@ val Nunito = FontFamily(
 val Roboto = FontFamily(
     Font(R.font.roboto_regular, FontWeight.Normal),
     Font(R.font.roboto_medium, FontWeight.Medium),
-    Font(R.font.roboto_bold, FontWeight.Bold)
+    Font(R.font.roboto_semibold, FontWeight.SemiBold),
+    Font(R.font.roboto_bold, FontWeight.Bold),
+)
+
+val bodyMediumSemiBold = TextStyle(
+    fontFamily = Roboto,
+    fontWeight = FontWeight.SemiBold,
+    fontSize = 14.sp
 )
 
 // 2️⃣ Definir Typography siguiendo Material 3
@@ -28,21 +35,21 @@ val Typography = Typography(
     displaySmall = TextStyle(
         fontFamily = Nunito,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 45.sp
+        fontSize = 40.sp
     ),
 
     // Headlines / encabezados importantes
     headlineSmall = TextStyle(
         fontFamily = Nunito,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 22.sp
+        fontSize = 30.sp
     ),
 
     // Titles / encabezados menores
     titleMedium = TextStyle(
         fontFamily = Nunito,
-        fontWeight = FontWeight.Medium,
-        fontSize = 18.sp
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 22.sp
     ),
 
     // Body / texto principal

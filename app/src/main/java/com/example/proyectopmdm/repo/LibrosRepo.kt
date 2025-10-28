@@ -4,6 +4,7 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import com.example.spotifyhome.model.Libro
 import java.time.LocalDate
+import java.util.Date
 
 @RequiresApi(Build.VERSION_CODES.O)
 class LibrosRepo : ILibrosRepo {
@@ -30,7 +31,7 @@ class LibrosRepo : ILibrosRepo {
                 sinopsis = "El principito es una novela corta y la obra maestra de la literatura francesa. ...",
                 paginasTotales = 100,
                 paginasLeidas = 50,
-                ultimaLectura = LocalDate.of(2025, 10, 24)
+                ultimaLectura = Date(2025 - 1900, 9, 24)
             )
         )
     }
