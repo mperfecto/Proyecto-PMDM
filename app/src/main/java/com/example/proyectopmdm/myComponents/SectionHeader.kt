@@ -24,13 +24,13 @@ fun SectionHeader(
 
     Box(
         modifier = modifier
-            .background(MaterialTheme.colorScheme.surface)
+            .background(MaterialTheme.colorScheme.background)
             .padding(start = 16.dp, end = 16.dp, top = 8.dp)
             .fillMaxWidth()
     ) {
         Text(
             text = text,
-            color = MaterialTheme.colorScheme.onSecondaryContainer,
+            color = MaterialTheme.colorScheme.primary,
             style = MaterialTheme.typography.headlineSmall,
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier.widthIn(max = screenWidth * 0.75f),

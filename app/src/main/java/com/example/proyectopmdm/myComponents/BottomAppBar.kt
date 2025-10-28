@@ -30,8 +30,8 @@ fun BottomAppBar(
     onSearchClick: () -> Unit
 ) {
     BottomAppBar(
-        containerColor = MaterialTheme.colorScheme.surface,
-        contentColor = MaterialTheme.colorScheme.onSecondaryContainer
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+        contentColor = MaterialTheme.colorScheme.secondary
     ) {
 
         val iconSize = 32.dp

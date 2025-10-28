@@ -26,7 +26,7 @@ fun TitleHeader(text: String, modifier: Modifier = Modifier) {
     ) {
         Text(
             text = text,
-            color = MaterialTheme.colorScheme.onSecondaryContainer,
+            color = MaterialTheme.colorScheme.secondary,
             style = MaterialTheme.typography.displaySmall,
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier.widthIn(max = screenWidth * 0.75f),
