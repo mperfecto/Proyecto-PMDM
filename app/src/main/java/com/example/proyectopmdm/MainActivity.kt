@@ -1,11 +1,10 @@
-package com.example.proyectopmdm.pages
+package com.example.proyectopmdm
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,14 +16,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.proyectopmdm.R
 import com.example.proyectopmdm.myComponents.PageHeader
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 import com.example.proyectopmdm.myComponents.BottomAppBar
 import com.example.proyectopmdm.myComponents.ReadingBookCard
 import com.example.proyectopmdm.myComponents.SectionHeader
+import com.example.proyectopmdm.pages.LaddingPage
 import com.example.spotifyhome.model.Libro
-import java.time.LocalDate
 import java.util.Date
 
 class MainActivity : ComponentActivity() {
@@ -83,8 +81,12 @@ class MainActivity : ComponentActivity() {
 
                         ReadingBookCard(
                             libro = libroEjemplo,
-                            onClick = { /* Acción al pulsar la card */ },
-                            modifier = Modifier.padding(top = 120.dp) // Ajusta según necesites
+                            onClick = { },
+                            modifier = Modifier.padding(top = 120.dp)
+                        )
+
+                        SectionHeader(
+                            text = stringResource(id = R.string.resumen_lectura)
                         )
 
                     }
