@@ -45,8 +45,9 @@ fun ReadingBookCard(
         ),
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 4.dp)
-            .clickable { onClick() }
+            .padding(vertical = 4.dp)
+            .clickable { onClick() },
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
 
         Row(
@@ -61,7 +62,7 @@ fun ReadingBookCard(
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .size(width = 100.dp, height = 120.dp)
-                    .clip(RoundedCornerShape(10.dp)),
+                    .clip(RoundedCornerShape(10.dp))
             )
 
             Column(

@@ -1,9 +1,14 @@
 <resources>
-    <string name="app_name">Proyecto PMDM</string>
+    <string name="app_name">Readify</string>
     <string name="bienvenida">Bienvenidx %1$s!</string>
     <string name="has_leido">¿Has leído hoy?</string>
     <string name="paginas_de">Pág %1$d de %2$d</string>
     <string name="ultima_lectura">Última lectura: %1$s</string>
-    <string name="estas_leyendo">Estás leyendo...</string>
-    <string name="resumen_lectura">Resumen de lectura</string>
+    <string name="header_leyendo">Estás leyendo...</string>
+    <string name="header_resumen">Resumen de lectura</string>
+    <string name="cantidad_leyendo">Leyendo: %1$d libros</string>
+    <string name="cantidad_pendientes">Pendientes: %1$d libros</string>
+    <string name="cantidad_leidos">Leídos: %1$d libros</string>
+    <string name="anhadir_libro">Añadir libro</string>
+    <string name="header_recomendados">Te encantará...</string>
 </resources>

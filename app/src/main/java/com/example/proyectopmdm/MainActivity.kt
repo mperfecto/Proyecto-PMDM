@@ -5,9 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -15,14 +13,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.proyectopmdm.myComponents.PageHeader
+import androidx.compose.ui.unit.dp
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 import com.example.proyectopmdm.myComponents.BottomAppBar
-import com.example.proyectopmdm.myComponents.ReadingBookCard
-import com.example.proyectopmdm.myComponents.SectionHeader
+import com.example.proyectopmdm.myComponents.TopAppBar
 import com.example.proyectopmdm.pages.LandingPage
-import com.example.spotifyhome.model.Libro
-import java.util.Date
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,8 +29,17 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier
                         .fillMaxSize()
-                        .background(MaterialTheme.colorScheme.surface),
+                        .background(MaterialTheme.colorScheme.surface)
+                        .padding(horizontal = 16.dp),
                     containerColor = MaterialTheme.colorScheme.surface,
+
+                    topBar = {
+                        TopAppBar(
+                            title = stringResource(id = R.string.app_name),
+                            onSettingsClick = {}
+                        )
+                    },
+
                     bottomBar = {
                         BottomAppBar(
                             onSettingsClick = {},
@@ -57,6 +62,14 @@ class MainActivity : ComponentActivity() {
         ProyectoPMDMTheme {
             Scaffold(
                 containerColor = MaterialTheme.colorScheme.surface,
+
+                topBar = {
+                    TopAppBar(
+                        title = stringResource(id = R.string.app_name),
+                        onSettingsClick = {}
+                    )
+                },
+
                 bottomBar = {
                     BottomAppBar(
                         onSettingsClick = {},

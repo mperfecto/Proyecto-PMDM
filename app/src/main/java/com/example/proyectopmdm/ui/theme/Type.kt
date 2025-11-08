@@ -35,14 +35,14 @@ val Typography = Typography(
     displaySmall = TextStyle(
         fontFamily = Nunito,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 40.sp
+        fontSize = 33.sp
     ),
 
     // Headlines / encabezados importantes
     headlineSmall = TextStyle(
         fontFamily = Nunito,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 30.sp
+        fontSize = 27.sp
     ),
 
     // Titles / encabezados menores

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -15,6 +16,7 @@ import com.example.proyectopmdm.R
 import com.example.proyectopmdm.myComponents.PageHeader
 import com.example.proyectopmdm.myComponents.ReadingBookCard
 import com.example.proyectopmdm.myComponents.SectionHeader
+import com.example.proyectopmdm.myComponents.SummaryGrid
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 import com.example.spotifyhome.model.Libro
 import java.util.Date
@@ -43,7 +45,7 @@ fun LandingPage(innerPadding: PaddingValues) {
         )
 
         SectionHeader(
-            text = stringResource(id = R.string.estas_leyendo)
+            text = stringResource(id = R.string.header_leyendo)
         )
 
         val libroEjemplo = Libro(
@@ -64,8 +66,21 @@ fun LandingPage(innerPadding: PaddingValues) {
         )
 
         SectionHeader(
-            text = stringResource(id = R.string.resumen_lectura)
+            text = stringResource(id = R.string.header_resumen)
         )
+
+        SummaryGrid(
+            leyendo = 2,
+            pendientes = 10,
+            leidos = 5,
+            onAddClick = {},
+            modifier = Modifier.padding(top = 8.dp)
+        )
+
+        SectionHeader(
+            text = stringResource(id = R.string.header_recomendados)
+        )
+
 
     }
 }
@@ -76,6 +91,11 @@ fun LandingPage(innerPadding: PaddingValues) {
 fun LandingPagePreview() {
 
     ProyectoPMDMTheme {
-        LandingPage(innerPadding = PaddingValues(0.dp))
+        Scaffold(
+            modifier = Modifier
+                .padding(horizontal = 16.dp))
+        { innerPadding ->
+            LandingPage(innerPadding = PaddingValues(0.dp))
+        }
     }
 }
