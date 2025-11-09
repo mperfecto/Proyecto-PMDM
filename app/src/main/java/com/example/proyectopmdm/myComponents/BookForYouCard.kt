@@ -9,8 +9,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,38 +28,27 @@ import java.util.Date
 @Composable
 fun BookForYouCard(
     libro: Libro,
-    modififier: Modifier = Modifier,
+    modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
 
     Column(
-        modifier = modififier
+        modifier = modifier
             .width(140.dp)
             .clickable { onClick() },
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Top
     ) {
 
-        Card(
-            shape = RoundedCornerShape(10.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surface
-            ),
+        Image(
+            painter = painterResource(id = libro.portada),
+            contentDescription = libro.titulo,
+            contentScale = ContentScale.Crop,
             modifier = Modifier
                 .width(140.dp)
                 .height(200.dp)
                 .clip(RoundedCornerShape(10.dp))
-        ) {
-
-            Image(
-                painter = painterResource(id = libro.portada),
-                contentDescription = libro.titulo,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clip(RoundedCornerShape(10.dp))
-            )
-        }
+        )
 
         Column(
             modifier = Modifier
@@ -76,7 +63,7 @@ fun BookForYouCard(
                 color = MaterialTheme.colorScheme.onSurface,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
-                modifier = modififier.padding(bottom = 4.dp)
+                modifier = modifier.padding(bottom = 4.dp)
             )
 
             Text(
@@ -91,13 +78,13 @@ fun BookForYouCard(
 }
 
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, backgroundColor = 0xFFDDDDDD)
 @Composable
 fun BookForYouCardPreview() {
     ProyectoPMDMTheme {
         val libroEjemplo = Libro(
             id = 1,
-            titulo = "El Principito vestido de azul",
+            titulo = "El Principito",
             autor = "Antoine de Saint-Exupéry",
             sinopsis = "Una historia sobre la infancia, la amistad y la esencia de la vida.",
             paginasTotales = 100,
