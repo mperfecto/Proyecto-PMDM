@@ -13,6 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.proyectopmdm.R
+import com.example.proyectopmdm.myComponents.BookForYouCard
 import com.example.proyectopmdm.myComponents.PageHeader
 import com.example.proyectopmdm.myComponents.ReadingBookCard
 import com.example.proyectopmdm.myComponents.SectionHeader
@@ -80,6 +81,8 @@ fun LandingPage(innerPadding: PaddingValues) {
         SectionHeader(
             text = stringResource(id = R.string.header_recomendados)
         )
+
+        BookForYouCard(libro = libroEjemplo, onClick = { })
 
 
     }
