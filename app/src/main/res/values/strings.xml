@@ -10,5 +10,6 @@
     <string name="cantidad_pendientes">Pendientes: %1$d libros</string>
     <string name="cantidad_leidos">Leídos: %1$d libros</string>
     <string name="anhadir_libro">Añadir libro</string>
+    <string name="anhadir_a_biblioteca">Añadir a biblioteca</string>
     <string name="header_recomendados">Te encantará...</string>
 </resources>

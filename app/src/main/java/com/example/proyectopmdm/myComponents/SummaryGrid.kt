@@ -57,7 +57,7 @@ fun SummaryGrid(
                     .weight(1f)
             )
 
-            AddLibroCard(
+            AddLibroCardButton(
                 onClick = onAddClick,
                 modifier = Modifier
                     .weight(1f)
@@ -70,7 +70,8 @@ fun SummaryGrid(
 @Composable
 fun SummaryGridPreview() {
     ProyectoPMDMTheme {
-        SummaryGrid(leyendo = 2,
+        SummaryGrid(
+            leyendo = 2,
             pendientes = 10,
             leidos = 5,
             onAddClick = {})

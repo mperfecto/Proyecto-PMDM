@@ -23,7 +23,7 @@ fun BooksForYouCarousel(
     LazyRow(
         modifier = modifier
             .fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         items(libros) { libro ->
             BookForYouCard(

@@ -27,7 +27,7 @@ import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 
 
 @Composable
-fun AddLibroCard(
+fun AddLibroCardButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -70,6 +70,6 @@ fun AddLibroCard(
 @Composable
 fun AddLibroCardPreview() {
     ProyectoPMDMTheme {
-        AddLibroCard(onClick = {})
+        AddLibroCardButton(onClick = {})
     }
 }
