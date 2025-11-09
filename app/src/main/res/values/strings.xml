@@ -12,4 +12,7 @@
     <string name="anhadir_libro">Añadir libro</string>
     <string name="anhadir_a_biblioteca">Añadir a biblioteca</string>
     <string name="header_recomendados">Te encantará...</string>
+    <string name="paginas_libro">%1$d páginas</string>
+    <string name="fecha_publicacion">Fecha de publicación: %1$s</string>
+    <string name="isbn">ISBN: %1$s</string>
 </resources>

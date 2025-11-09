@@ -107,10 +107,7 @@ fun ReadingBookCard(
                     color = MaterialTheme.colorScheme.onSurface,
                     style = MaterialTheme.typography.bodySmall
                 )
-
             }
-
-
         }
     }
 }
@@ -119,16 +116,17 @@ fun ReadingBookCard(
 @Composable
 fun ReadingBookCardPreview() {
     ProyectoPMDMTheme {
-
         val libroEjemplo = Libro(
             id = 1,
+            isbn = "978-84-376-0494-7",
             titulo = "El Principito",
             autor = "Antoine de Saint-Exupéry",
+            portada = R.drawable.book,
             sinopsis = "Una historia sobre la infancia, la amistad y la esencia de la vida.",
+            fechaPublicacion = Date(1943 - 1900, 3, 6),
             paginasTotales = 100,
             paginasLeidas = 50,
-            ultimaLectura = Date(2025 - 1900, 9, 24),
-            portada = R.drawable.book
+            ultimaLectura = Date(2025 - 1900, 9, 24)
         )
         ReadingBookCard(libro = libroEjemplo)
     }

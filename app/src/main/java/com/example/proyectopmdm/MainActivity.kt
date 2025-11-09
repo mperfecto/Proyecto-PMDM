@@ -1,9 +1,11 @@
 package com.example.proyectopmdm
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.MaterialTheme
@@ -16,13 +18,20 @@ import androidx.compose.ui.unit.dp
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 import com.example.proyectopmdm.myComponents.BottomAppBar
 import com.example.proyectopmdm.myComponents.TopAppBar
+import com.example.proyectopmdm.pages.BookPage
 import com.example.proyectopmdm.pages.LandingPage
+import com.example.proyectopmdm.repo.LibrosRepo
 
 
 class MainActivity : ComponentActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        val librosRepo = LibrosRepo()
+        val libroEjemplo = librosRepo.getLibros().first()
+
         setContent {
             ProyectoPMDMTheme {
                 Scaffold(
@@ -48,14 +57,8 @@ class MainActivity : ComponentActivity() {
                     }
                 ) { innerPadding ->
 
-                    val contentPadding = PaddingValues(
-                        start = 16.dp,
-                        end = 16.dp,
-                        top = innerPadding.calculateTopPadding(),
-                        bottom = innerPadding.calculateBottomPadding()
-                    )
-
-                    LandingPage(innerPadding = contentPadding)
+                    //LandingPage(innerPadding)
+                    BookPage(libro = libroEjemplo, innerPadding = innerPadding)
                 }
             }
         }
@@ -63,9 +66,14 @@ class MainActivity : ComponentActivity() {
 }
 
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Preview(showBackground = true)
 @Composable
 fun MainActivityPreview() {
+
+    val librosRepo = LibrosRepo()
+    val libroEjemplo = librosRepo.getLibros().first()
+
     ProyectoPMDMTheme {
         Scaffold(
             modifier = Modifier
@@ -89,14 +97,8 @@ fun MainActivityPreview() {
                 )
             }
         ) { innerPadding ->
-            val contentPadding = PaddingValues(
-                start = 16.dp,
-                end = 16.dp,
-                top = innerPadding.calculateTopPadding(),
-                bottom = innerPadding.calculateBottomPadding()
-            )
 
-            LandingPage(innerPadding = contentPadding)
+            BookPage(libro = libroEjemplo, innerPadding = innerPadding)
         }
     }
 }
