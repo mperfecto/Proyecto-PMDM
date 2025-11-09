@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -13,7 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.proyectopmdm.R
-import com.example.proyectopmdm.myComponents.BookForYouCard
+import com.example.proyectopmdm.myComponents.BooksForYouCarousel
 import com.example.proyectopmdm.myComponents.PageHeader
 import com.example.proyectopmdm.myComponents.ReadingBookCard
 import com.example.proyectopmdm.myComponents.SectionHeader
@@ -27,10 +29,14 @@ import java.util.Date
 
 fun LandingPage(innerPadding: PaddingValues) {
 
+    val scrollState = rememberScrollState()
+    val betweenSpace = 5.dp
+
     Column(
         modifier = Modifier
-            .background(MaterialTheme.colorScheme.background)
             .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
+            .verticalScroll(scrollState)
             .padding(innerPadding)
     )
     {
@@ -63,7 +69,7 @@ fun LandingPage(innerPadding: PaddingValues) {
         ReadingBookCard(
             libro = libroEjemplo,
             onClick = { },
-            modifier = Modifier.padding(top = 8.dp)
+            modifier = Modifier.padding(top = betweenSpace)
         )
 
         SectionHeader(
@@ -75,16 +81,51 @@ fun LandingPage(innerPadding: PaddingValues) {
             pendientes = 10,
             leidos = 5,
             onAddClick = {},
-            modifier = Modifier.padding(top = 8.dp)
+            modifier = Modifier.padding(top = betweenSpace)
         )
 
         SectionHeader(
             text = stringResource(id = R.string.header_recomendados)
         )
 
-        BookForYouCard(libro = libroEjemplo, onClick = { })
+        val librosRecomendados = listOf(
+            libroEjemplo,
+            Libro(
+                id = 2,
+                titulo = "1984",
+                autor = "George Orwell",
+                sinopsis = "",
+                paginasTotales = 200,
+                paginasLeidas = 100,
+                ultimaLectura = Date(2025 - 1900, 5, 12),
+                portada = R.drawable.book
+            ),
+            Libro(
+                id = 3,
+                titulo = "Cien años de soledad",
+                autor = "Gabriel García Márquez",
+                sinopsis = "",
+                paginasTotales = 300,
+                paginasLeidas = 150,
+                ultimaLectura = Date(2025 - 1900, 3, 8),
+                portada = R.drawable.book
+            ),
+            Libro(
+                id = 4,
+                titulo = "La sombra del viento",
+                autor = "Carlos Ruiz Zafón",
+                sinopsis = "",
+                paginasTotales = 400,
+                paginasLeidas = 200,
+                ultimaLectura = Date(2025 - 1900, 7, 15),
+                portada = R.drawable.book
+            )
+        )
 
-
+        BooksForYouCarousel(
+            libros = librosRecomendados,
+            modifier = Modifier.padding(top = betweenSpace)
+        )
     }
 }
 
@@ -96,7 +137,8 @@ fun LandingPagePreview() {
     ProyectoPMDMTheme {
         Scaffold(
             modifier = Modifier
-                .padding(horizontal = 16.dp))
+                .padding(horizontal = 16.dp)
+        )
         { innerPadding ->
             LandingPage(innerPadding = PaddingValues(0.dp))
         }

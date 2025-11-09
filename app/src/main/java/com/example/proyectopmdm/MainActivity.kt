@@ -5,8 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -28,9 +28,7 @@ class MainActivity : ComponentActivity() {
             ProyectoPMDMTheme {
                 Scaffold(
                     modifier = Modifier
-                        .fillMaxSize()
-                        .background(MaterialTheme.colorScheme.surface)
-                        .padding(horizontal = 16.dp),
+                        .background(MaterialTheme.colorScheme.surface),
                     containerColor = MaterialTheme.colorScheme.surface,
 
                     topBar = {
@@ -50,38 +48,56 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                 ) { innerPadding ->
-                    LandingPage(innerPadding)
+
+                    val contentPadding = PaddingValues(
+                        start = 16.dp,
+                        end = 16.dp,
+                        top = innerPadding.calculateTopPadding(),
+                        bottom = innerPadding.calculateBottomPadding()
+                    )
+
+                    LandingPage(innerPadding = contentPadding)
                 }
             }
         }
     }
+}
 
-    @Preview(showBackground = true)
-    @Composable
-    fun MainActivityPreview() {
-        ProyectoPMDMTheme {
-            Scaffold(
-                containerColor = MaterialTheme.colorScheme.surface,
 
-                topBar = {
-                    TopAppBar(
-                        title = stringResource(id = R.string.app_name),
-                        onSettingsClick = {}
-                    )
-                },
+@Preview(showBackground = true)
+@Composable
+fun MainActivityPreview() {
+    ProyectoPMDMTheme {
+        Scaffold(
+            modifier = Modifier
+                .background(MaterialTheme.colorScheme.surface),
+            containerColor = MaterialTheme.colorScheme.surface,
 
-                bottomBar = {
-                    BottomAppBar(
-                        onSettingsClick = {},
-                        onHomeClick = {},
-                        onFavoriteClick = {},
-                        onProfileClick = {},
-                        onSearchClick = {}
-                    )
-                }
-            ) { innerPadding ->
-                LandingPage(innerPadding)
+            topBar = {
+                TopAppBar(
+                    title = stringResource(id = R.string.app_name),
+                    onSettingsClick = {}
+                )
+            },
+
+            bottomBar = {
+                BottomAppBar(
+                    onSettingsClick = {},
+                    onHomeClick = {},
+                    onFavoriteClick = {},
+                    onProfileClick = {},
+                    onSearchClick = {}
+                )
             }
+        ) { innerPadding ->
+            val contentPadding = PaddingValues(
+                start = 16.dp,
+                end = 16.dp,
+                top = innerPadding.calculateTopPadding(),
+                bottom = innerPadding.calculateBottomPadding()
+            )
+
+            LandingPage(innerPadding = contentPadding)
         }
     }
 }

@@ -1,11 +1,12 @@
 package com.example.proyectopmdm.myComponents
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -25,8 +26,7 @@ fun BooksForYouCarousel(
     LazyRow(
         modifier = modifier
             .fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        contentPadding = PaddingValues(horizontal = 16.dp)
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(libros) { libro ->
             BookForYouCard(
@@ -41,6 +41,7 @@ fun BooksForYouCarousel(
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun BooksForYouCarouselPreview() {
+
     ProyectoPMDMTheme {
         val librosEjemplo = listOf(
             Libro(
@@ -95,6 +96,8 @@ fun BooksForYouCarouselPreview() {
             )
         )
 
-        BooksForYouCarousel(librosEjemplo)
+        BooksForYouCarousel(
+            librosEjemplo
+        )
     }
 }

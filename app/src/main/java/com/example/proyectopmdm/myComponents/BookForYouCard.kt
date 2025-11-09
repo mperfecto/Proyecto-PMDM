@@ -63,7 +63,8 @@ fun BookForYouCard(
                 color = MaterialTheme.colorScheme.onSurface,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
-                modifier = modifier.padding(bottom = 4.dp)
+                modifier = modifier.padding(bottom = 4.dp),
+                softWrap = true
             )
 
             Text(
