@@ -7,20 +7,17 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 import com.example.proyectopmdm.myComponents.BottomAppBar
 import com.example.proyectopmdm.myComponents.TopAppBar
-import com.example.proyectopmdm.pages.BookPage
-import com.example.proyectopmdm.pages.LandingPage
+import com.example.proyectopmdm.pages.LoginPage
 import com.example.proyectopmdm.repo.LibrosRepo
+import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 
 
 class MainActivity : ComponentActivity() {
@@ -58,7 +55,8 @@ class MainActivity : ComponentActivity() {
                 ) { innerPadding ->
 
                     //LandingPage(innerPadding)
-                    BookPage(libro = libroEjemplo, innerPadding = innerPadding)
+                    //BookPage(libro = libroEjemplo, innerPadding = innerPadding)
+                    LoginPage(innerPadding)
                 }
             }
         }
@@ -98,7 +96,9 @@ fun MainActivityPreview() {
             }
         ) { innerPadding ->
 
-            BookPage(libro = libroEjemplo, innerPadding = innerPadding)
+            //LandingPage(innerPadding)
+            //BookPage(libro = libroEjemplo, innerPadding = innerPadding)
+            LoginPage(innerPadding)
         }
     }
 }

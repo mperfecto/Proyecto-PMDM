@@ -1,6 +1,5 @@
 package com.example.proyectopmdm.myComponents
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,8 +9,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -31,16 +30,17 @@ fun AddLibroCardButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Card(
+    Button(
+        onClick = onClick,
         shape = RoundedCornerShape(10.dp),
-        colors = CardDefaults.cardColors(
+        colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.onPrimaryContainer,
             contentColor = MaterialTheme.colorScheme.surfaceContainerHigh
         ),
         modifier = modifier
             .fillMaxWidth()
             .heightIn(min = 56.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        elevation = ButtonDefaults.buttonElevation(defaultElevation = 2.dp)
     ) {
         Row(
             modifier = Modifier
@@ -60,7 +60,6 @@ fun AddLibroCardButton(
                 contentDescription = "Añadir libro",
                 modifier = Modifier
                     .size(20.dp)
-                    .clickable { onClick() }
             )
         }
     }

@@ -15,4 +15,12 @@
     <string name="paginas_libro">%1$d páginas</string>
     <string name="fecha_publicacion">Fecha de publicación: %1$s</string>
     <string name="isbn">ISBN: %1$s</string>
+    <string name="inicio_sesion">Inicio de sesión</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="registrate">Regístrate</string>
+    <string name="email">Email</string>
+    <string name="contrasenha">Contraseña</string>
+    <string name="introduce_email">Introduce tu correo electrónico</string>
+    <string name="introduce_contrasenha">Introduce tu contraseña</string>
+    <string name="contrasenha_olvidada">¿Olvidaste tu contraseña?</string>
 </resources>
