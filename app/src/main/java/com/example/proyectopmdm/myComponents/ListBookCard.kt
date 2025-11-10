@@ -1,5 +1,7 @@
 package com.example.proyectopmdm.myComponents
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -23,22 +25,22 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.proyectopmdm.R
+import com.example.proyectopmdm.repo.LibrosRepo
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 import com.example.proyectopmdm.ui.theme.bodyMediumSemiBold
 import com.example.spotifyhome.model.Libro
 import java.text.SimpleDateFormat
-import java.util.Date
 import java.util.Locale
 
 @Composable
-fun ReadingBookCard(
+fun ListBookCard(
     libro: Libro,
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {}
 ) {
 
     val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-    val ultimaLecturaStr = libro.ultimaLectura?.let { formatter.format(it) } ?: "--/--/----"
+    val fechaPublicacionStr = formatter.format(libro.fechaPublicacion)
 
     Card(
         shape = RoundedCornerShape(10.dp),
@@ -52,7 +54,6 @@ fun ReadingBookCard(
             .clickable { onClick() },
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
-
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -88,10 +89,10 @@ fun ReadingBookCard(
                     modifier = Modifier
                         .padding(bottom = 15.dp)
                 )
+
                 Text(
                     text = stringResource(
-                        R.string.paginas_de,
-                        libro.paginasLeidas ?: 0,
+                        R.string.paginas,
                         libro.paginasTotales
                     ),
                     color = MaterialTheme.colorScheme.onSurface,
@@ -99,10 +100,12 @@ fun ReadingBookCard(
                     modifier = Modifier
                         .padding(bottom = 10.dp)
                 )
+
+
                 Text(
                     text = stringResource(
-                        R.string.ultima_lectura,
-                        ultimaLecturaStr
+                        R.string.fecha_publicacion,
+                        fechaPublicacionStr
                     ),
                     color = MaterialTheme.colorScheme.onSurface,
                     style = MaterialTheme.typography.bodySmall
@@ -112,22 +115,15 @@ fun ReadingBookCard(
     }
 }
 
-@Preview(showBackground = true)
+
+@RequiresApi(Build.VERSION_CODES.O)
+@Preview
 @Composable
-fun ReadingBookCardPreview() {
+fun ListBookCardPreview() {
+    val repo = LibrosRepo()
+    val libro = repo.getLibros().first()
+
     ProyectoPMDMTheme {
-        val libroEjemplo = Libro(
-            id = 1,
-            isbn = "978-84-376-0494-7",
-            titulo = "El Principito",
-            autor = "Antoine de Saint-Exupéry",
-            portada = R.drawable.book,
-            sinopsis = "Una historia sobre la infancia, la amistad y la esencia de la vida.",
-            fechaPublicacion = Date(1943 - 1900, 3, 6),
-            paginasTotales = 100,
-            paginasLeidas = 50,
-            ultimaLectura = Date(2025 - 1900, 9, 24)
-        )
-        ReadingBookCard(libro = libroEjemplo)
+        ListBookCard(libro = libro)
     }
 }

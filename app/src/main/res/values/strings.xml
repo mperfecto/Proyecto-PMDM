@@ -4,6 +4,7 @@
     <string name="has_leido">¿Has leído hoy?</string>
     <string name="paginas_de">Pág %1$d de %2$d</string>
     <string name="ultima_lectura">Última lectura: %1$s</string>
+    <string name="paginas">%1$d páginas</string>
     <string name="header_leyendo">Estás leyendo...</string>
     <string name="header_resumen">Resumen de lectura</string>
     <string name="cantidad_leyendo">Leyendo: %1$d libros</string>
@@ -23,4 +24,8 @@
     <string name="introduce_email">Introduce tu correo electrónico</string>
     <string name="introduce_contrasenha">Introduce tu contraseña</string>
     <string name="contrasenha_olvidada">¿Olvidaste tu contraseña?</string>
+    <string name="tu_biblioteca">Tu biblioteca</string>
+    <string name="libros_leidos">Has leído x libros</string>
+    <string name="buscar">Buscar libro</string>
+    <string name="ordenar">Ordernar por</string>
 </resources>

@@ -101,5 +101,4 @@ fun BookPagePreview() {
             innerPadding = PaddingValues(0.dp)
         )
     }
-
 }

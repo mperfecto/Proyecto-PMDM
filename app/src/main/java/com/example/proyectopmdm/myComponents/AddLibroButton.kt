@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -20,6 +21,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.modifier.modifierLocalOf
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -31,8 +33,8 @@ import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 
 @Composable
 fun AddLibroButton(
-    text: String = stringResource(id = R.string.anhadir_a_biblioteca),
-    onClick: () -> Unit,
+    text: String = stringResource(id = R.string.anhadir_libro),
+    onClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Button(
@@ -42,16 +44,12 @@ fun AddLibroButton(
             containerColor = MaterialTheme.colorScheme.onPrimaryContainer,
             contentColor = MaterialTheme.colorScheme.surfaceContainerHigh
         ),
-        modifier = modifier
-            .width(150.dp)
-            .height(50.dp)
-            .clickable { onClick() },
+        modifier = modifier,
         elevation = ButtonDefaults.buttonElevation(defaultElevation = 5.dp)
     ) {
         Row(
             modifier = Modifier
-                .padding(8.dp)
-                .fillMaxHeight(),
+                .fillMaxSize(),
             horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally),
             verticalAlignment = Alignment.CenterVertically
 
@@ -74,14 +72,14 @@ fun AddLibroButton(
             }
             Box(
                 modifier = Modifier
-                    .weight(1f),
+                    .size(40.dp),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     imageVector = Icons.Filled.AddCircle,
                     contentDescription = text,
                     modifier = Modifier
-                        .size(32.dp)
+                        .fillMaxSize()
                 )
             }
         }
@@ -93,7 +91,10 @@ fun AddLibroButton(
 fun AddLibroButtonPreview() {
     ProyectoPMDMTheme {
         AddLibroButton(
-            onClick = {}
+            text = stringResource(id = R.string.anhadir_libro),
+            modifier = Modifier
+                .width(150.dp)
+                .height(50.dp)
         )
     }
 }

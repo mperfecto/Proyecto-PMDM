@@ -15,6 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.proyectopmdm.myComponents.BottomAppBar
 import com.example.proyectopmdm.myComponents.TopAppBar
+import com.example.proyectopmdm.pages.LandingPage
 import com.example.proyectopmdm.pages.LoginPage
 import com.example.proyectopmdm.repo.LibrosRepo
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
@@ -96,9 +97,9 @@ fun MainActivityPreview() {
             }
         ) { innerPadding ->
 
-            //LandingPage(innerPadding)
+            LandingPage(innerPadding)
             //BookPage(libro = libroEjemplo, innerPadding = innerPadding)
-            LoginPage(innerPadding)
+            //LoginPage(innerPadding)
         }
     }
 }
