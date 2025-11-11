@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.BottomAppBar
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -20,21 +19,19 @@ import com.example.proyectopmdm.R
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BottomAppBar(
-    onSettingsClick: () -> Unit,
-    onHomeClick: () -> Unit,
-    onFavoriteClick: () -> Unit,
-    onProfileClick: () -> Unit,
-    onSearchClick: () -> Unit
+    onFavoriteClick: () -> Unit = {},
+    onSearchClick: () -> Unit = {},
+    onHomeClick: () -> Unit = {},
+    onProfileClick: () -> Unit = {},
 ) {
     BottomAppBar(
         containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
         contentColor = MaterialTheme.colorScheme.secondary
     ) {
 
-        val iconSize = 32.dp
+        val iconSize = 40.dp
 
         Row(
             modifier = Modifier
@@ -43,13 +40,6 @@ fun BottomAppBar(
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            IconButton(onClick = onSettingsClick) {
-                Icon(
-                    painterResource(R.drawable.ic_settings),
-                    contentDescription = "Settings",
-                    modifier = Modifier.size(iconSize)
-                )
-            }
             IconButton(onClick = onFavoriteClick) {
                 Icon(
                     painterResource(R.drawable.ic_library),
@@ -57,17 +47,17 @@ fun BottomAppBar(
                     modifier = Modifier.size(iconSize)
                 )
             }
-            IconButton(onClick = onHomeClick) {
-                Icon(
-                    painterResource(R.drawable.ic_home),
-                    contentDescription = "Home",
-                    modifier = Modifier.size(iconSize)
-                )
-            }
             IconButton(onClick = onSearchClick) {
                 Icon(
                     painterResource(R.drawable.ic_search),
                     contentDescription = "Search",
+                    modifier = Modifier.size(iconSize)
+                )
+            }
+            IconButton(onClick = onHomeClick) {
+                Icon(
+                    painterResource(R.drawable.ic_home),
+                    contentDescription = "Home",
                     modifier = Modifier.size(iconSize)
                 )
             }
@@ -87,12 +77,6 @@ fun BottomAppBar(
 @Composable
 fun MyBottomBarPreview() {
     ProyectoPMDMTheme {
-        BottomAppBar(
-            onSettingsClick = {},
-            onHomeClick = {},
-            onFavoriteClick = {},
-            onProfileClick = {},
-            onSearchClick = {}
-        )
+        BottomAppBar()
     }
 }

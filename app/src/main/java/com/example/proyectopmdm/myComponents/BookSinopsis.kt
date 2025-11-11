@@ -36,6 +36,7 @@ fun BookSinopsis(
 @Preview(showBackground = true)
 @Composable
 fun BookSinopsisPreview() {
+
     ProyectoPMDMTheme {
         BookSinopsis(
             sinopsis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +

@@ -8,10 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.proyectopmdm.R
+import com.example.proyectopmdm.repo.LibrosRepo
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 import com.example.spotifyhome.model.Libro
-import java.util.Date
 
 @Composable
 fun BooksForYouCarousel(
@@ -35,62 +34,14 @@ fun BooksForYouCarousel(
 }
 
 
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(showBackground = true)
 @Composable
 fun BooksForYouCarouselPreview() {
 
-    ProyectoPMDMTheme {
-        val librosEjemplo = listOf(
-            Libro(
-                id = 1,
-                isbn = "978-84-376-0494-7",
-                titulo = "El Principito",
-                autor = "Antoine de Saint-Exupéry",
-                portada = R.drawable.book,
-                sinopsis = "Una historia sobre la infancia, la amistad y la esencia de la vida.",
-                fechaPublicacion = Date(1943 - 1900, 3, 6),
-                paginasTotales = 100,
-                paginasLeidas = 50,
-                ultimaLectura = Date(2025 - 1900, 9, 24)
-            ),
-            Libro(
-                id = 2,
-                isbn = "978-0-452-28423-4",
-                titulo = "1984",
-                autor = "George Orwell",
-                sinopsis = "Una novela distópica sobre un régimen totalitario y la vigilancia extrema.",
-                fechaPublicacion = Date(1949 - 1900, 5, 8),
-                paginasTotales = 200,
-                paginasLeidas = 100,
-                ultimaLectura = Date(2025 - 1900, 5, 12),
-                portada = R.drawable.book
-            ),
-            Libro(
-                id = 3,
-                isbn = "978-84-376-0494-8",
-                titulo = "Cien años de soledad",
-                autor = "Gabriel García Márquez",
-                sinopsis = "La historia épica de la familia Buendía en el pueblo ficticio de Macondo.",
-                fechaPublicacion = Date(1967 - 1900, 5, 30),
-                paginasTotales = 300,
-                paginasLeidas = 150,
-                ultimaLectura = Date(2025 - 1900, 3, 8),
-                portada = R.drawable.book
-            ),
-            Libro(
-                id = 4,
-                isbn = "978-84-08-03630-7",
-                titulo = "La sombra del viento",
-                autor = "Carlos Ruiz Zafón",
-                sinopsis = "Un joven descubre un misterioso libro que cambiará su vida en la Barcelona de posguerra.",
-                fechaPublicacion = Date(2001 - 1900, 4, 17),
-                paginasTotales = 400,
-                paginasLeidas = 200,
-                ultimaLectura = Date(2025 - 1900, 7, 15),
-                portada = R.drawable.book
-            )
-        )
+    val repo = LibrosRepo()
+    val librosEjemplo = repo.getLibros()
 
+    ProyectoPMDMTheme {
         BooksForYouCarousel(
             librosEjemplo
         )

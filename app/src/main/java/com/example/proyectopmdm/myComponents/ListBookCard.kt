@@ -1,15 +1,13 @@
 package com.example.proyectopmdm.myComponents
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -22,8 +20,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.proyectopmdm.R
 import com.example.proyectopmdm.repo.LibrosRepo
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
@@ -57,7 +57,7 @@ fun ListBookCard(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(12.dp),
+                .padding(10.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
@@ -65,7 +65,8 @@ fun ListBookCard(
                 contentDescription = libro.titulo,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .size(width = 100.dp, height = 120.dp)
+                    .height(120.dp)
+                    .aspectRatio(2f / 3f)
                     .clip(RoundedCornerShape(10.dp))
             )
 
@@ -73,21 +74,27 @@ fun ListBookCard(
                 modifier = Modifier
                     .weight(1f)
                     .height(110.dp)
-                    .padding(start = 25.dp, end = 12.dp)
+                    .padding(start = 20.dp, end = 12.dp)
             ) {
                 Text(
                     text = libro.titulo,
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurface,
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        fontSize = 18.sp
+                    ),
+                    color = MaterialTheme.colorScheme.primary,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
                     modifier = Modifier
-                        .padding(bottom = 4.dp)
+                        .padding(bottom = 2.dp)
                 )
                 Text(
                     text = libro.autor,
                     style = bodyMediumSemiBold,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                     modifier = Modifier
-                        .padding(bottom = 15.dp)
+                        .padding(bottom = 12.dp)
                 )
 
                 Text(
@@ -98,9 +105,8 @@ fun ListBookCard(
                     color = MaterialTheme.colorScheme.onSurface,
                     style = MaterialTheme.typography.bodySmall,
                     modifier = Modifier
-                        .padding(bottom = 10.dp)
+                        .padding(bottom = 5.dp)
                 )
-
 
                 Text(
                     text = stringResource(
@@ -116,12 +122,12 @@ fun ListBookCard(
 }
 
 
-@RequiresApi(Build.VERSION_CODES.O)
 @Preview
 @Composable
 fun ListBookCardPreview() {
+
     val repo = LibrosRepo()
-    val libro = repo.getLibros().first()
+    val libro = repo.getLibros().get(0)
 
     ProyectoPMDMTheme {
         ListBookCard(libro = libro)

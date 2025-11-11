@@ -1,8 +1,7 @@
 package com.example.proyectopmdm.pages
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,27 +25,29 @@ import com.example.proyectopmdm.myComponents.OrdenarCard
 import com.example.proyectopmdm.myComponents.TitleHeader
 import com.example.proyectopmdm.repo.LibrosRepo
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
-import com.example.spotifyhome.model.Libro
 
-@RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun ListPage(innerPadding: PaddingValues, libros: List<Libro>) {
+fun ListPage(innerPadding: PaddingValues) {
 
     val scrollState = rememberScrollState()
     val betweenSpace = 5.dp
+    
+    val repo = LibrosRepo()
+    val libros = repo.getLibros()
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
             .verticalScroll(scrollState)
-            .padding(horizontal = 16.dp)
+            .padding(innerPadding)
+            .padding(horizontal = 16.dp),
+        verticalArrangement = Arrangement.spacedBy(betweenSpace)
     ) {
-
         TitleHeader(
             text = stringResource(id = R.string.tu_biblioteca),
             modifier = Modifier
-                .padding(innerPadding)
+                .padding(vertical = 8.dp)
         )
 
         FiltersRow(
@@ -76,15 +77,10 @@ fun ListPage(innerPadding: PaddingValues, libros: List<Libro>) {
 }
 
 
-@RequiresApi(Build.VERSION_CODES.O)
 @Preview(showBackground = true)
 @Composable
 fun ListPagePreview() {
-
-    val repo = LibrosRepo()
-    val libros = repo.getLibros()
-
     ProyectoPMDMTheme {
-        ListPage(innerPadding = PaddingValues(0.dp), libros = libros)
+        ListPage(innerPadding = PaddingValues(0.dp))
     }
 }

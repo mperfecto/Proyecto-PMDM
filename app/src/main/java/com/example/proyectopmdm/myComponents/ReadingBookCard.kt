@@ -4,10 +4,10 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -20,14 +20,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.proyectopmdm.R
+import com.example.proyectopmdm.repo.LibrosRepo
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 import com.example.proyectopmdm.ui.theme.bodyMediumSemiBold
 import com.example.spotifyhome.model.Libro
 import java.text.SimpleDateFormat
-import java.util.Date
 import java.util.Locale
 
 @Composable
@@ -56,7 +58,7 @@ fun ReadingBookCard(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(12.dp),
+                .padding(10.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
@@ -64,7 +66,8 @@ fun ReadingBookCard(
                 contentDescription = libro.titulo,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .size(width = 100.dp, height = 120.dp)
+                    .height(120.dp)
+                    .aspectRatio(2f / 3f)
                     .clip(RoundedCornerShape(10.dp))
             )
 
@@ -72,21 +75,27 @@ fun ReadingBookCard(
                 modifier = Modifier
                     .weight(1f)
                     .height(110.dp)
-                    .padding(start = 25.dp, end = 12.dp)
+                    .padding(start = 20.dp, end = 12.dp)
             ) {
                 Text(
                     text = libro.titulo,
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurface,
+                    style = MaterialTheme.typography.titleMedium.copy(
+                        fontSize = 18.sp
+                    ),
+                    color = MaterialTheme.colorScheme.primary,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
                     modifier = Modifier
-                        .padding(bottom = 4.dp)
+                        .padding(bottom = 2.dp)
                 )
                 Text(
                     text = libro.autor,
                     style = bodyMediumSemiBold,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                     modifier = Modifier
-                        .padding(bottom = 15.dp)
+                        .padding(bottom = 12.dp)
                 )
                 Text(
                     text = stringResource(
@@ -97,7 +106,7 @@ fun ReadingBookCard(
                     color = MaterialTheme.colorScheme.onSurface,
                     style = MaterialTheme.typography.bodySmall,
                     modifier = Modifier
-                        .padding(bottom = 10.dp)
+                        .padding(bottom = 5.dp)
                 )
                 Text(
                     text = stringResource(
@@ -112,22 +121,15 @@ fun ReadingBookCard(
     }
 }
 
+
 @Preview(showBackground = true)
 @Composable
 fun ReadingBookCardPreview() {
+
+    val repo = LibrosRepo()
+    val libro = repo.getLibros().get(5)
+
     ProyectoPMDMTheme {
-        val libroEjemplo = Libro(
-            id = 1,
-            isbn = "978-84-376-0494-7",
-            titulo = "El Principito",
-            autor = "Antoine de Saint-Exupéry",
-            portada = R.drawable.book,
-            sinopsis = "Una historia sobre la infancia, la amistad y la esencia de la vida.",
-            fechaPublicacion = Date(1943 - 1900, 3, 6),
-            paginasTotales = 100,
-            paginasLeidas = 50,
-            ultimaLectura = Date(2025 - 1900, 9, 24)
-        )
-        ReadingBookCard(libro = libroEjemplo)
+        ReadingBookCard(libro = libro)
     }
 }

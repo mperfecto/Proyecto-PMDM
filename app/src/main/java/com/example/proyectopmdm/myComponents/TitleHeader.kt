@@ -35,6 +35,7 @@ fun TitleHeader(text: String, modifier: Modifier = Modifier) {
     }
 }
 
+
 @Preview
 @Composable
 fun TitleHeaderPreview() {

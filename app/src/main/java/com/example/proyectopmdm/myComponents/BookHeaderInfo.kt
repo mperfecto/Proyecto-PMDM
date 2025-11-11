@@ -52,7 +52,7 @@ fun BookHeaderInfo(
 fun BookHeaderInfoPreview() {
     ProyectoPMDMTheme {
         BookHeaderInfo(
-            titulo = "El Principito vestido de azul",
+            titulo = "El Principito",
             autor = "Antoine de Saint-Exupéry"
         )
     }

@@ -1,6 +1,5 @@
 package com.example.proyectopmdm.myComponents
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -13,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.proyectopmdm.repo.LibrosRepo
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 
 @Composable
@@ -30,7 +30,7 @@ fun BookInfoSection(
             containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
             contentColor = MaterialTheme.colorScheme.onSurface
         ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 5.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp),
         modifier = modifier
             .fillMaxWidth()
     ) {
@@ -60,17 +60,16 @@ fun BookInfoSection(
 @Preview(showBackground = true)
 @Composable
 fun BookInfoSectionPreview() {
+    
+    val repo = LibrosRepo()
+    val libroEjemplo = repo.getLibros().first()
+    
     ProyectoPMDMTheme {
         BookInfoSection(
-            sinopsis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
-                    "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud " +
-                    "exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure " +
-                    "dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. " +
-                    "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt " +
-                    "mollit anim id est laborum.",
-            paginas = 96,
-            fechaPublicacion = "06/04/1943",
-            isbn = "978-84-376-0494-7"
+            sinopsis = libroEjemplo.sinopsis,
+            paginas = libroEjemplo.paginasTotales,
+            fechaPublicacion = libroEjemplo.fechaPublicacion.toString(),
+            isbn = libroEjemplo.isbn
         )
     }
 

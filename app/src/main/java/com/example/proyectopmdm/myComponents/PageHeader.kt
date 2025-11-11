@@ -21,8 +21,7 @@ fun PageHeader(titleHeader: String, subtitleText: String, modifier: Modifier = M
         modifier = Modifier
             .padding(vertical = 8.dp)
             .background(MaterialTheme.colorScheme.surface)
-    )
-    {
+    ) {
         Column(
             modifier = Modifier,
         ) {
@@ -32,21 +31,19 @@ fun PageHeader(titleHeader: String, subtitleText: String, modifier: Modifier = M
     }
 }
 
+
 @Preview
 @Composable
 fun PageHeaderPreview() {
 
+    val username = "Marcos"
+    val title = stringResource(id = R.string.bienvenida, username)
+    val subtitle = stringResource(id = R.string.has_leido)
+
     ProyectoPMDMTheme {
-
-        Box() {
-            val username = "Marcos"
-            val title = stringResource(id = R.string.bienvenida, username)
-            val subtitle = stringResource(id = R.string.has_leido)
-
-            PageHeader(
-                titleHeader = title,
-                subtitleText = subtitle
-            )
-        }
+        PageHeader(
+            titleHeader = title,
+            subtitleText = subtitle
+        )
     }
 }

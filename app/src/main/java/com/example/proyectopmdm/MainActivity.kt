@@ -1,11 +1,9 @@
 package com.example.proyectopmdm
 
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -15,14 +13,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.proyectopmdm.myComponents.BottomAppBar
 import com.example.proyectopmdm.myComponents.TopAppBar
+import com.example.proyectopmdm.pages.BookPage
 import com.example.proyectopmdm.pages.LandingPage
+import com.example.proyectopmdm.pages.ListPage
 import com.example.proyectopmdm.pages.LoginPage
 import com.example.proyectopmdm.repo.LibrosRepo
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 
 
 class MainActivity : ComponentActivity() {
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -46,7 +45,6 @@ class MainActivity : ComponentActivity() {
 
                     bottomBar = {
                         BottomAppBar(
-                            onSettingsClick = {},
                             onHomeClick = {},
                             onFavoriteClick = {},
                             onProfileClick = {},
@@ -55,9 +53,11 @@ class MainActivity : ComponentActivity() {
                     }
                 ) { innerPadding ->
 
-                    //LandingPage(innerPadding)
-                    //BookPage(libro = libroEjemplo, innerPadding = innerPadding)
-                    LoginPage(innerPadding)
+                    LandingPage(innerPadding)
+                    //BookPage(libro = libroEjemplo, innerPadding)
+                    //LoginPage(innerPadding)
+                    //ListPage(innerPadding)
+
                 }
             }
         }
@@ -65,7 +65,6 @@ class MainActivity : ComponentActivity() {
 }
 
 
-@RequiresApi(Build.VERSION_CODES.O)
 @Preview(showBackground = true)
 @Composable
 fun MainActivityPreview() {
@@ -88,7 +87,6 @@ fun MainActivityPreview() {
 
             bottomBar = {
                 BottomAppBar(
-                    onSettingsClick = {},
                     onHomeClick = {},
                     onFavoriteClick = {},
                     onProfileClick = {},
@@ -97,9 +95,11 @@ fun MainActivityPreview() {
             }
         ) { innerPadding ->
 
-            LandingPage(innerPadding)
-            //BookPage(libro = libroEjemplo, innerPadding = innerPadding)
+            //LandingPage(innerPadding)
+            BookPage(libro = libroEjemplo, innerPadding)
             //LoginPage(innerPadding)
+            //ListPage(innerPadding)
+
         }
     }
 }

@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -20,16 +21,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.proyectopmdm.R
+import com.example.proyectopmdm.repo.LibrosRepo
 import com.example.proyectopmdm.ui.theme.ProyectoPMDMTheme
 import com.example.spotifyhome.model.Libro
-import java.util.Date
 
 @Composable
 fun BookForYouCard(
     libro: Libro,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit
+    onClick: () -> Unit = {}
 ) {
 
     Column(
@@ -46,7 +46,7 @@ fun BookForYouCard(
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .width(140.dp)
-                .height(200.dp)
+                .aspectRatio(2f / 3f)
                 .clip(RoundedCornerShape(10.dp))
         )
 
@@ -79,26 +79,15 @@ fun BookForYouCard(
 }
 
 
-@Preview(showBackground = true, backgroundColor = 0xFFDDDDDD)
+@Preview(showBackground = true)
 @Composable
 fun BookForYouCardPreview() {
-    ProyectoPMDMTheme {
-        val libroEjemplo = Libro(
-            id = 1,
-            isbn = "978-84-376-0494-7",
-            titulo = "El Principito",
-            autor = "Antoine de Saint-Exupéry",
-            portada = R.drawable.book,
-            sinopsis = "Una historia sobre la infancia, la amistad y la esencia de la vida.",
-            fechaPublicacion = Date(1943 - 1900, 3, 6),
-            paginasTotales = 100,
-            paginasLeidas = 50,
-            ultimaLectura = Date(2025 - 1900, 9, 24)
-        )
+    val repo = LibrosRepo()
+    val libroEjemplo = repo.getLibros().first()
 
+    ProyectoPMDMTheme {
         BookForYouCard(
-            libro = libroEjemplo,
-            onClick = {}
+            libro = libroEjemplo
         )
     }
 }

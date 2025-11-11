@@ -81,8 +81,7 @@ fun LoginPage(innerPadding: PaddingValues) {
                 .padding(top = 10.dp, bottom = 2.dp)
         )
         ClickableLabel(
-            text = stringResource(R.string.registrate),
-
+            text = stringResource(R.string.registrate)
         )
     }
 }
